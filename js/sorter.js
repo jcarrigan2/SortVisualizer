@@ -7,10 +7,12 @@ function getRandomInt(min, max) {
 }
 
 /*
- * This function generates an array of random integers of length n.
+ * This function generates an array of random integers of length n
+ * up to a maximum value of n
  */
 function generateRandomArray(n){
 	let arr = []
+	// create n random integers of maximum value n
 	for(i=0;i<n;i++){
 		arr[i]=getRandomInt(1, n+1);
 	}
@@ -21,8 +23,16 @@ function generateRandomArray(n){
  * Performs a MergeSort on the provided array and returns a new, ascendingly sorted
  * array.
  */
-function mergeSort(arr){	
-	return [];
+function mergeSort(arr) {
+    if (arr.length <= 1) {
+        return arr;
+    }
+    let midIndex = Math.floor(arr.length / 2);
+
+    let leftHalf = arr.slice(0, midIndex);
+    let rightHalf = arr.slice(midIndex);
+
+    return merge(mergeSort(leftHalf), mergeSort(rightHalf));
 }
 
 /*
@@ -30,8 +40,6 @@ function mergeSort(arr){
  */
 function merge(arr1,arr2){
 	let merged = [];
-	
-	// TODO: write logic to merge two subarrays
-	
+    merged = arr1.concat(arr2);
 	return merged;
 }

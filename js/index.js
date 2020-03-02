@@ -1,4 +1,10 @@
-function getColor(value, minValue, maxValue){
+/*
+ * Sets Hue, Saturation, and Lightness, with the latter two
+ * as constants for all returned values and the hue as a variable
+ * dependent on the parameters. A row of min. length would get a hue
+ * of zero, and a row of max length would get a hue of 360.
+ */
+function getColor(value, minValue, maxValue) {
 	let s = 100;
 	let l = 45;
 	let h = (value - minValue)/(maxValue-minValue) * 360;
